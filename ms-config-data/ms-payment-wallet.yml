@@ -1,0 +1,38 @@
+server:
+  port: 9015
+security:
+  basic:
+    enable: false
+management:
+  security:
+    enabled: false
+spring:
+  cloud:
+    config:
+      enabled: true
+    stream:
+      bindings:
+        output:
+          destination: ut45nyg5-payment
+        outputTopic:
+          destination: ut45nyg5-payment
+  kafka:
+    bootstrap-servers: moped-01.srvs.cloudkafka.com:9094,moped-02.srvs.cloudkafka.com:9094,moped-03.srvs.cloudkafka.com:9094
+    properties:
+      security:
+        protocol: SASL_SSL
+      sasl:
+        mechanism: SCRAM-SHA-256
+        jaas:
+          config: org.apache.kafka.common.security.scram.ScramLoginModule required username="ut45nyg5" password="H1BlXUXS7hkwxdgqYkzy2spjhGhPB87z";
+  # data:
+    # mongodb:
+      #host: localhost
+      #port: 27017
+      #database: bdbootcamp
+      # uri: mongodb://db-mongo:27017/bdbootcamp
+eureka:
+  client:
+    enabled: true
+    service-url:
+      defaultZone: http://ms-discovery-server:8761/eureka/
