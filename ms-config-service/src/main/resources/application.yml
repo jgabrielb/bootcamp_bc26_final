@@ -7,6 +7,6 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/jgabrielb/bootcamp_bc26_proy4.git
+          uri: https://github.com/jgabrielb/bootcamp_bc26_final.git
           search-paths: ms-config-data
           default-label: ${GIT_BRANCH:main}
